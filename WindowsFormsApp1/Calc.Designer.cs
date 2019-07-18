@@ -164,9 +164,9 @@
             // btn0
             // 
             this.btn0.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn0.Location = new System.Drawing.Point(70, 230);
+            this.btn0.Location = new System.Drawing.Point(12, 230);
             this.btn0.Name = "btn0";
-            this.btn0.Size = new System.Drawing.Size(52, 39);
+            this.btn0.Size = new System.Drawing.Size(110, 39);
             this.btn0.TabIndex = 10;
             this.btn0.Text = "0";
             this.btn0.UseVisualStyleBackColor = true;
@@ -231,7 +231,7 @@
             // bntCloseBracket
             // 
             this.bntCloseBracket.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bntCloseBracket.Location = new System.Drawing.Point(70, 50);
+            this.bntCloseBracket.Location = new System.Drawing.Point(128, 50);
             this.bntCloseBracket.Name = "bntCloseBracket";
             this.bntCloseBracket.Size = new System.Drawing.Size(52, 39);
             this.bntCloseBracket.TabIndex = 16;
@@ -242,7 +242,7 @@
             // bntOpenBracket
             // 
             this.bntOpenBracket.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bntOpenBracket.Location = new System.Drawing.Point(12, 50);
+            this.bntOpenBracket.Location = new System.Drawing.Point(70, 50);
             this.bntOpenBracket.Name = "bntOpenBracket";
             this.bntOpenBracket.Size = new System.Drawing.Size(52, 39);
             this.bntOpenBracket.TabIndex = 17;
@@ -264,9 +264,9 @@
             // btnClean
             // 
             this.btnClean.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnClean.Location = new System.Drawing.Point(245, 50);
+            this.btnClean.Location = new System.Drawing.Point(186, 50);
             this.btnClean.Name = "btnClean";
-            this.btnClean.Size = new System.Drawing.Size(52, 39);
+            this.btnClean.Size = new System.Drawing.Size(111, 39);
             this.btnClean.TabIndex = 19;
             this.btnClean.Text = "C";
             this.btnClean.UseVisualStyleBackColor = false;
@@ -275,7 +275,7 @@
             // btnSin
             // 
             this.btnSin.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSin.Location = new System.Drawing.Point(12, 230);
+            this.btnSin.Location = new System.Drawing.Point(12, 185);
             this.btnSin.Name = "btnSin";
             this.btnSin.Size = new System.Drawing.Size(52, 39);
             this.btnSin.TabIndex = 20;
@@ -286,7 +286,7 @@
             // btnCos
             // 
             this.btnCos.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCos.Location = new System.Drawing.Point(12, 185);
+            this.btnCos.Location = new System.Drawing.Point(12, 140);
             this.btnCos.Name = "btnCos";
             this.btnCos.Size = new System.Drawing.Size(52, 39);
             this.btnCos.TabIndex = 21;
@@ -297,7 +297,7 @@
             // btnTg
             // 
             this.btnTg.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnTg.Location = new System.Drawing.Point(12, 140);
+            this.btnTg.Location = new System.Drawing.Point(12, 95);
             this.btnTg.Name = "btnTg";
             this.btnTg.Size = new System.Drawing.Size(52, 39);
             this.btnTg.TabIndex = 22;
@@ -308,7 +308,7 @@
             // btnCtg
             // 
             this.btnCtg.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCtg.Location = new System.Drawing.Point(12, 95);
+            this.btnCtg.Location = new System.Drawing.Point(12, 50);
             this.btnCtg.Name = "btnCtg";
             this.btnCtg.Size = new System.Drawing.Size(52, 39);
             this.btnCtg.TabIndex = 23;
@@ -320,6 +320,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(310, 285);
             this.Controls.Add(this.btnCtg);
             this.Controls.Add(this.btnTg);
@@ -345,8 +346,11 @@
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.tbMain);
+            this.MaximumSize = new System.Drawing.Size(326, 324);
+            this.MinimumSize = new System.Drawing.Size(326, 324);
             this.Name = "Calc";
-            this.Text = "3";
+            this.Text = "Calc";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Calc_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
