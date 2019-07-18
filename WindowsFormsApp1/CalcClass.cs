@@ -48,13 +48,13 @@ namespace WindowsFormsApp1
                     }
                     if (str.ElementAt(i).ToString() == "." || str.ElementAt(i).ToString() == ",")
                     {
-                        numbers.Push("."); //добавляем точку в стрек
+                        numbers.Push(","); //добавляем точку в стрек
                     }
                     if (!isNum || i == str.Length - 1) //объединяем значение стека в строку и сохраняем в список
                     {
                         if (numbers.Count != 0) // обрабатываем стек с числами
                         {
-                            if (numbers.Peek() != ".") //последней в стеке не может быть точка
+                            if (numbers.Peek() != ",") //последней в стеке не может быть точка
                             {
                                 Stack<string> stck = new Stack<string>(numbers); //инвертированый стек
                                 numbers.Clear();
@@ -114,11 +114,11 @@ return myList; //строка переведена в коллекцию опе�
 
         public Stack<string> MakeReversePolishNotation(List<string> lst)
         {
-            Stack<string> outStack = new Stack<string>(); //собираем числа из более чем одного символа
-            Stack<string> tempStack = new Stack<string>(); //собираем числа из более чем одного символа
+            Stack<string> outStack = new Stack<string>(); //стек на выход
+            Stack<string> tempStack = new Stack<string>(); //стек для обработки
             for (int i = 0; i < lst.Count; i++)
             {
-                bool isNum = int.TryParse(lst.ElementAt(i).ToString(), out int Num); //проверяем символ на число
+                bool isNum = Double.TryParse(lst.ElementAt(i).ToString(), out double Num);//проверяем символ на число
                 if (isNum)
                 {
                     outStack.Push(Num.ToString());
@@ -179,26 +179,75 @@ return myList; //строка переведена в коллекцию опе�
             return outStack;
         } //формируем братную запись
 
-        public double PostfixNotation(Stack<string> arr)
+        public double PostfixNotation(Stack<string> stk) //просчет обратной записи
         {
-            string i1 = "2";
-            string i2 = "3";
-            string i3 = "*";
-            return (2 / 3);
+            Stack<string> tempStack = new Stack<string>();
+            Stack<string> mainStack = new Stack<string>(stk); // инсертированные входной стек
+            string[] mathematicaSymbols = new string[] { "+", "-", "/", "*" }; //математические знаки
+
+            do
+            {
+                string tempStr = mainStack.Pop(); //анализируем элемент стека
+                bool isNum = Double.TryParse(tempStr, out double Num);//проверяем символ на число
+                if (isNum)
+                {
+                    tempStack.Push(tempStr); //запихиваем во временный стек
+                }
+                if (!isNum) //если операция
+                {
+                    double result = 0;
+                    if (mathematicaSymbols.Contains(tempStr)) //если математическая операция (2 операнда)
+                    {
+                        double secondNum = Double.Parse(tempStack.Pop());
+                        double fierstNum = Double.Parse(tempStack.Pop());
+                        
+                        switch (tempStr)
+                        {
+                            case "+":
+                                result = fierstNum + secondNum;
+                                break;
+                            case "-":
+                                result = fierstNum - secondNum;
+                                break;
+                            case "*":
+                                result = fierstNum * secondNum;
+                                break;
+                            case "/":
+                                result = fierstNum / secondNum;
+                                break;
+                            default:
+                                break;
+                        }
+                        tempStack.Push(result.ToString());
+                    }
+                    else //если триготометрия (1 операнд)
+                    {
+                        double fierstNum = Double.Parse(tempStack.Pop());
+                        switch (tempStr)
+                        {
+                            case "€":
+                                result =  Math.Cos(fierstNum);
+                                break;
+                            case "$":
+                                result = Math.Sin(fierstNum);
+                                break;
+                            case "₴":
+                                result = Math.Tan(fierstNum);
+                                break;
+                            case "£":
+                                result = 1.0/Math.Tan(fierstNum);
+                                break;
+                            default:
+                                break;
+                        }
+                        tempStack.Push(result.ToString());
+                    }                                         
+                }
+            }
+            while (mainStack.Count != 0);
+
+            return (Math.Round(Double.Parse(tempStack.Pop()),2)); //результат расчетов
         }
-
-
-        public double MakeCaclulation(string typeOfOperation, int numerator, int divider)
-        {
-            double resultOfCalcilation;
-            resultOfCalcilation = 0.0;
-            return resultOfCalcilation;
-        }
-
-
-
-
-
 
     }
 }

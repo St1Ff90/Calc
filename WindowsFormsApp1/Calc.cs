@@ -37,7 +37,7 @@ namespace WindowsFormsApp1
            Stack<string> result = MyCalc.MakeReversePolishNotation(str);
            double dd = MyCalc.PostfixNotation(result);
 
-            return (2.0/3);
+            return (dd);
         }
 
         #region Buttons
@@ -153,6 +153,10 @@ namespace WindowsFormsApp1
         private void btnCtg_Click(object sender, EventArgs e)
         {
             tbMain.AppendText("ctg");
+        }
+        private void btnDot_Click(object sender, EventArgs e)
+        {
+            tbMain.AppendText(",");
         }
 
         #endregion
